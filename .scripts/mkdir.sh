@@ -55,7 +55,7 @@ nameCamelCase()
   done
 }
 
-nameUCFirst()
+nameUpperFirst()
 {
   local IFS="-" 
   read -a split <<< $name
@@ -67,9 +67,9 @@ nameUCFirst()
     partOfName=${first^^}${allButFirst}
     if [[ $i > 0 ]]
     then 
-      name_uc_first+=" $partOfName"
+      name_upper_first+=" $partOfName"
     else 
-      name_uc_first+="$partOfName"
+      name_upper_first+="$partOfName"
     fi
   done
 }
@@ -82,7 +82,7 @@ nameUpperCase()
 nameUnderscore 
 nameCamelCase 
 nameUpperCase
-nameUCFirst
+nameUpperFirst
 
 shopt -s globstar
 shopt -s dotglob
@@ -90,7 +90,7 @@ printf -v library "%s\n" ${dir}/src/**
 shopt -u globstar
 shopt -u dotglob
 
-src="$dir/src";
+src="$dir/src"
 for i in $library
 do
   v_dir=${i/$src/$install_dir}
@@ -101,10 +101,17 @@ do
     printf "%-25s%s\n" "Created directory:" "$mkd"
   elif [[ -f $i ]]
   then
-    printf "%s" "$(sed "s,tmp_name_author_uri,$author_uri,g;s/tmp_name_author/$author_name/g;s/tmp_name_description/$plugin_description/g;s/tmp_name/$name_underscore/g;s/TmpName/$name_camelcase/g;s/tmp\-name/$name/g;s/TMPNAME/$name_uppercase/g;s/TMP_NAME/$name_uc_first/g;" $i)" > "${mkd}"
+    sed -e "s,tmp_name_author_uri,$author_uri,g"\
+      -e "s/tmp_name_author/$author_name/g"\
+      -e "s/tmp_name_description/$plugin_description/g"\
+      -e "s/tmp_name/$name_underscore/g"\
+      -e "s/TmpName/$name_camelcase/g"\
+      -e "s/tmp\-name/$name/g"\
+      -e "s/TMPNAME/$name_uppercase/g"\
+      -e "s/TMP_NAME/$name_upper_first/g" $i > "${mkd}"
     printf "%-25s%s\n" "Created file:" "$mkd"
   fi
 done
 
-printf '\n\e[1;37;46m%s\e[m\n' "$name_uc_first created!"
+printf '\n\e[1;37;46m%s\e[m\n' "$name_upper_first created!"
 
