@@ -1,9 +1,9 @@
 <?php namespace TmpName;
 
 class Enqueue {
-	function __construct() {
-		add_action("wp_enqueue_scripts", [$this, 'enqueue']);
-	}			
+  function __construct() {
+    add_action("wp_enqueue_scripts", [$this, 'enqueue']);
+  }			
   
   function getDist($file) {
     $dist = TMPNAME_PLUGIN_URI ."assets/dist"; 
@@ -15,9 +15,9 @@ class Enqueue {
       return null;
     }
     return $dist . "/" . $dist_file;
-	}
+  }
 
-	function enqueue() {
+  function enqueue() {
     $script = $this->getDist("main.js");
     $style = $this->getDist("main.css");
     wp_enqueue_script("tmp-name", $script, [], null, true);

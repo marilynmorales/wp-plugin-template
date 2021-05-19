@@ -38,7 +38,6 @@ printf "\nCreating plugin template: \e[1m%s\e[0m\n\n" "$name"
 # tmp_name_author_uri
 # tmp_name_description
 nameUnderscore() 
-
 {
   name_underscore=$(sed "s/\-/\_/g" <<< "$name")
 }
