@@ -12,7 +12,7 @@ class DB {
   }
 
   public static function getTableName():string {
-    return static::getPrefix() . Plugin::table_name;
+    return static::getPrefix() . Plugin::$table_name;
   }
 
   public static function getCharset():string {

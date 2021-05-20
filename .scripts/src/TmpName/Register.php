@@ -11,16 +11,13 @@ class Register {
   function getTableName() {
     return DB::getTableName(); 
   }
-  function getIPTableName() {
-    return DB::getIPTableName();
-  }
+  
   function getCharset() {
     return DB::getCharset();
   }
 
   function init() {
     $table_name = $this->getTableName();
-    $ip_table_name = $this->getIPTableName();
     $charset_collate = $this->getCharset();
     $sql = "CREATE TABLE $table_name (
     id mediumint(9) NOT NULL AUTO_INCREMENT,

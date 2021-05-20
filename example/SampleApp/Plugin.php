@@ -1,5 +1,4 @@
-<?php
-namespace SampleApp;
+<?php namespace SampleApp;
 
 class Plugin {
   
@@ -10,9 +9,9 @@ class Plugin {
     $this->init_autoloader();
     register_activation_hook(SAMPLEAPP_PLUGIN_FILE, [$this, 'init_activation']);
     new Filters();
-		new Endpoints();
-		new Enqueue();
-		new Shortcodes();
+    new Endpoints();
+    new Enqueue();
+    new Shortcodes();
   }
   
   function init_autoloader() {
@@ -29,7 +28,7 @@ class Plugin {
   }
 
   function init_activation() {
-      $register = new Register();
-      $register->init();  
+    $register = new Register();
+    $register->init();  
   }
 }

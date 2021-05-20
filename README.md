@@ -51,8 +51,10 @@ chmod +x ./install.sh
 Run within the `./assets` folder
 | CMD                      | Description                                   |
 |--------------------------|-----------------------------------------------|
-| npm run build:dev        | For local development.                        |
-| npm run build:production | Optimizes JS and CSS. Runs Prettier check.    |
+| npm i                    | Install required packages.                    |
+| npm run watch            | Watch files for local development.            |
+| npm run build:dev        | Build unoptimized files.                      |
+| npm run build            | Optimizes JS and CSS. Runs Prettier check.    |
 | npm run prettier:check   | Run check on JS and CS.                       |
 | npm run prettier:write   | Fix prettier errors automatically.            |   
 

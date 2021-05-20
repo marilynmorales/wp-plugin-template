@@ -1,11 +1,12 @@
 {
   "name": "sample-app",
   "version": "1.0.0",
-  "description": "sample description of the app",
+  "description": "Plugin description",
   "main": "index.js",
   "scripts": {
-    "build:dev": "rm -Rf ./dist && webpack --watch --progress --config ./webpack-dev.config.js",
-    "build:production": "npm run prettier:check && rm -Rf ./dist && webpack --config ./webpack-prod.config.js",
+    "watch": "rm -Rf ./dist && webpack --watch --progress --config ./webpack-dev.config.js",
+    "build:dev": "rm -Rf ./dist && webpack --progress --config ./webpack-dev.config.js",
+    "build": "npm run prettier:check && rm -Rf ./dist && webpack --config ./webpack-prod.config.js",
     "prettier:check": "prettier -c ./webpack*.js ./src/js/**/* ./src/scss/**/*",
     "prettier:write": "prettier --write ./webpack*.js ./src/js/**/* ./src/scss/**/*"
   },
