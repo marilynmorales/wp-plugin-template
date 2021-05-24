@@ -55,6 +55,6 @@ Run within the `./assets` folder
 | npm run watch            | Watch files for local development.            |
 | npm run build:dev        | Build unoptimized files.                      |
 | npm run build            | Optimizes JS and CSS. Runs Prettier check.    |
-| npm run prettier:check   | Run check on JS and CS.                       |
+| npm run prettier:check   | Run check on JS and CSS.                      |
 | npm run prettier:write   | Fix prettier errors automatically.            |   
 
